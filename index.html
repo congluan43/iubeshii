@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tỏ Tình</title>
+    <link rel="stylesheet" href="tt2.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fce4ec;
+            color: #d32f2f;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 40px 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            padding: 30px;
+        }
+        .message {
+            font-size: 1.8em;
+            color: #d32f2f;
+            font-weight: bold;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .message.show {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        .button-container button {
+            padding: 15px 40px;
+            font-size: 1.5em;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .button-container button:hover {
+            transform: scale(1.1);
+        }
+        .heart {
+            font-size: 3em;
+            color: red;
+            margin-top: 30px;
+            display: none;
+        }
+        footer {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 1.2em;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Tỏ Tình Với Em
+    </header>
+
+    <div class="container">
+        <h2>chúng ta có thể đi cùng nhau không?</h2>
+        <p>Nhưng trước hết, có một điều tôi cần phải nói với shii <3...</p>
+
+        <div class="message" id="message">
+            <p><span id="loveMessage"></span></p>
+        </div>
+
+        <div class="button-container">
+            <button id="confessButton">Tỏ Tình</button>
+        </div>
+
+        <div class="heart" id="heart">
+            ❤️
+        </div>
+
+        <!-- Các nút đồng ý và từ chối sẽ ẩn khi trang tải -->
+        <div id="responseContainer" style="margin-top: 30px; display: none;">
+            <button id="agreeButton">Đồng Ý</button>
+            <button id="denyButton">Từ Chối</button>
+        </div>
+    </div>
+
+    <footer>
+        © 2024 Tình Yêu Và Hạnh Phúc
+    </footer>
+
+    <script>
+        document.getElementById('confessButton').addEventListener('click', function() {
+            // Hiển thị lời tỏ tình
+            let loveMessage = document.getElementById('loveMessage');
+            loveMessage.textContent =  "Trong cuộc đời này, có rất nhiều điều đẹp đẽ, nhưng điều đẹp nhất chính là có em bên cạnh!";
+            
+            // Thêm hiệu ứng cho lời tỏ tình
+            let message = document.getElementById('message');
+            message.classList.add('show');
+
+            
+
+            // Hiển thị hình trái tim
+            let heart = document.getElementById('heart');
+            heart.style.display = 'block';
+            heart.style.animation = 'heartbeat 1s infinite';
+
+            // Ẩn nút tỏ tình sau khi nhấn
+            let button = document.getElementById('confessButton');
+            button.style.display = 'none';
+
+            // Hiển thị các nút đồng ý và từ chối
+            document.getElementById('responseContainer').style.display = 'block';
+        });
+
+        // Khi nhấn Đồng Ý
+        document.getElementById('agreeButton').addEventListener('click', function() {
+            // Thực hiện hành động chuyển hướng (giả lập chuyển tới Messenger)
+            alert("Cảm ơn bạn đã đồng ý! Bạn sẽ được đưa đến Messenger để tiếp tục.");
+
+            // Chuyển hướng đến Messenger (có thể thay đổi link này để phù hợp)
+            window.location.href = "https://m.me/luan.docong.79"; // Thay "yourusername" bằng tên người dùng thực tế của bạn
+        });
+
+        // Khi nhấn Từ Chối
+        document.getElementById('denyButton').addEventListener('click', function() {
+            // Tạo các tọa độ ngẫu nhiên trong phạm vi của màn hình
+            let denyButton = document.getElementById('denyButton');
+            let maxX = window.innerWidth - denyButton.offsetWidth;
+            let maxY = window.innerHeight - denyButton.offsetHeight;
+            let randomX = Math.random() * maxX;
+            let randomY = Math.random() * maxY;
+
+            // Dịch chuyển nút Từ Chối đến vị trí ngẫu nhiên
+            denyButton.style.position = 'absolute';
+            denyButton.style.left = randomX + 'px';
+            denyButton.style.top = randomY + 'px';
+        });
+    </script>
+
+</body>
+</html>

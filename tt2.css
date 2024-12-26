@@ -1,0 +1,134 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fce4ec;
+    color: #d32f2f;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header {
+    background-color: #d32f2f;
+    color: white;
+    padding: 40px 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 30px;
+}
+
+.message {
+    font-size: 1.8em;
+    color: #d32f2f;
+    font-weight: bold;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+/* Kích cỡ chữ ban đầu */
+.message {
+    font-size: 1.8em;
+    color: #d32f2f;
+    font-weight: bold;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+/* Khi lời tỏ tình được hiển thị */
+.message.show {
+    opacity: 1;
+    transform: scale(1.2);
+    font-size: 0.9em; /* Điều chỉnh kích cỡ chữ ở đây */
+}
+
+.button-container {
+    margin-top: 50px;
+}
+
+.button-container button {
+    padding: 15px 40px;
+    font-size: 1.5em;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.button-container button:hover {
+    transform: scale(1.1);
+}
+
+.heart {
+    font-size: 3em;
+    color: red;
+    margin-top: 30px;
+    display: none;
+}
+
+footer {
+    background-color: #d32f2f;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* CSS cho nút Từ Chối và Đồng Ý */
+#responseContainer button {
+    padding: 15px 40px;
+    font-size: 1.5em;
+    background-color: #fff;
+    color: #d32f2f;
+    border: 2px solid #d32f2f;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+#responseContainer button:hover {
+    background-color: #d32f2f;
+    color: white;
+    transform: scale(1.1);
+}
+
+#responseContainer button:active {
+    transform: scale(0.95);
+}
+
+#responseContainer button#denyButton {
+    background-color: #ffeb3b; /* Màu vàng cho Từ Chối */
+    color: #d32f2f;
+    border: 2px solid #ffeb3b;
+}
+
+#responseContainer button#denyButton:hover {
+    background-color: #fbc02d; /* Màu vàng đậm khi hover */
+    color: white;
+}
+
+#responseContainer button#agreeButton {
+    background-color: #4caf50; /* Màu xanh lá cho Đồng Ý */
+    color: white;
+    border: 2px solid #4caf50;
+}
+
+#responseContainer button#agreeButton:hover {
+    background-color: #388e3c; /* Màu xanh lá đậm khi hover */
+}
